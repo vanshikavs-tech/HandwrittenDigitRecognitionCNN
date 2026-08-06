@@ -30,4 +30,12 @@ public class NeuralNetwork {
 
         return output;
     }
+
+    public void updateWeights(double learningRate) {
+
+    for (Layer layer : layers) {
+        layer.updateWeights(learningRate);
+    }
+
+}
 }

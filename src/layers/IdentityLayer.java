@@ -14,4 +14,8 @@ public class IdentityLayer implements Layer {
         return gradient;
     }
 
+    @Override
+    public void updateWeights(double learningRate) {
+        // No weights to update
+    }
 }

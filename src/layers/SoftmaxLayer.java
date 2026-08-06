@@ -7,16 +7,15 @@ public class SoftmaxLayer implements Layer {
     @Override
     public Matrix forward(Matrix input) {
 
-        Matrix output = new Matrix(input.getRows(), input.getCols());
+        Matrix output =
+                new Matrix(input.getRows(), input.getCols());
 
         double sum = 0;
 
-        // Calculate exponential values
         for (int j = 0; j < input.getCols(); j++) {
             sum += Math.exp(input.getValue(0, j));
         }
 
-        // Normalize
         for (int j = 0; j < input.getCols(); j++) {
 
             double probability =
@@ -33,6 +32,11 @@ public class SoftmaxLayer implements Layer {
     public Matrix backward(Matrix gradient) {
 
         return gradient;
+
+    }
+
+    @Override
+    public void updateWeights(double learningRate) {
 
     }
 }

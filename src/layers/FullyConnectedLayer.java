@@ -7,6 +7,10 @@ public class FullyConnectedLayer implements Layer {
     private Matrix weights;
     private Matrix bias;
 
+    // Store values from forward pass
+    private Matrix input;
+    private Matrix output;
+
     public FullyConnectedLayer(int inputSize, int outputSize) {
 
         weights = new Matrix(inputSize, outputSize);
@@ -19,7 +23,10 @@ public class FullyConnectedLayer implements Layer {
     @Override
     public Matrix forward(Matrix input) {
 
-        Matrix output = input.multiply(weights);
+        // Save input for backpropagation
+        this.input = input;
+
+        output = input.multiply(weights);
         output = output.add(bias);
 
         return output;
@@ -28,8 +35,31 @@ public class FullyConnectedLayer implements Layer {
     @Override
     public Matrix backward(Matrix gradient) {
 
-        // Backpropagation will be implemented later
+        // Backpropagation implementation will come next
         return gradient;
+    }
 
+    @Override
+    public void updateWeights(double learningRate) {
+
+        // Weight update implementation will come next
+
+    }
+
+    // Getter methods (useful for debugging)
+    public Matrix getWeights() {
+        return weights;
+    }
+
+    public Matrix getBias() {
+        return bias;
+    }
+
+    public Matrix getInput() {
+        return input;
+    }
+
+    public Matrix getOutput() {
+        return output;
     }
 }
