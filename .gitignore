@@ -1,0 +1,5 @@
+bin/
+*.class
+data/mnist/*.gz
+.DS_Store
+Thumbs.db
